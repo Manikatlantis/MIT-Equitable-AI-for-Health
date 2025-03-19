@@ -68,6 +68,9 @@ The dataset is provided as train.csv (with labels) and test.csv (unlabeled for s
 | 4    | **Other**              | The image does **not fit any specific category**, possibly due to **image quality issues**. | 10    |
 | 5    | **Potentially Diagnostic** | The image is **unclear**, meaning **further testing** is needed to confirm its diagnostic value. | 97    |
 
+![](qc_effect.png)
+![](qc_pre_proc.png)
+
 ### Data Loading and Preprocessing
 
 _I started by loading the data from train.csv and test.csv:_ <br>
