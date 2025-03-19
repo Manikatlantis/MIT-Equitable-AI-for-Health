@@ -131,7 +131,7 @@ I tested the ensemble on a validation split by comparing ensemble predictions wi
 
 ### Weights and Biases Hyperparameter Tuning 
 I used W&B to find optimal: <br>
-
+![](wandb.png)
 Learning Rate (coarse sweeps in [1e-4, 1e-5, etc.]) <br>
 Weight Decay <br>
 Batch Size <br>
