@@ -1,5 +1,5 @@
-# Dermatology Image Classification on Kaggle
-## Equitable AI for Dermatology
+# Dermatology Image Classification with Torch (Kaggle)
+## Equitable AI for Dermatology (Spring 2025 AI Studio)
 **Goal**: Develop a fair and transparent machine learning model to classify 16 different skin conditions across diverse skin tones, addressing potential biases in dermatology.
 
 ## Project Overview 
