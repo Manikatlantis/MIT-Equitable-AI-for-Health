@@ -102,10 +102,10 @@ I used TorchVision transforms: <br>
 - PyTorch `Dataset` classes read each image from disk, convert BGR → RGB, apply the appropriate transform, and return `(image_tensor, label, sample_weight)`.
 
 ### Model Architecture & Training
-1. Initial Architecture and Basic Approach: <br>
+**1. Initial CNN & Basic Approach <br>**
 - Started with a simple CNN and SGD.
 - Achieved modest accuracy, but recognized the complexity of multi-class dermatology data. <br>
-2. Pre-trained Models and Transformers. <br>
+**2. Pre-trained Models and Transformers. (Swin and VIT)<br>**
 - `SwinForImageClassification` and `VITForImageClassification` from Hugging Face:
 * Imported one of the “swin-large-patch4-window7-224-in22k” or "google/vit-large-patch16-224-in21k" variants.
 * Set `num_labels=21` <br>
@@ -115,3 +115,25 @@ I used TorchVision transforms: <br>
 
 Optimizer: `AdamW` with a carefully tuned learning rate & weight decay (discovered via Weights & Biases sweeps). <br>
 Loss: Weighted cross-entropy, multiplied by `sample_weight` from the QC column.
+
+## Results and Overfitting Checks 
+- Training:
+* Phase 1: ~10 epochs with the backbone frozen.
+* Phase 2: ~7 epochs unfreezing everything.
+- Validation:
+* Achieved ~0.69 F1 Score in these final runs.
+* Monitored potential overfitting with a validation DataLoader; early stopping was possible if accuracy plateaued.
+
+## Ensembling 
+After training various Swin and ViT models separately, I created an ensemble to further boost classification performance. Each model produced a set of logits for each image, which I combined through weighted averaging. <br>
+I tested the ensemble on a validation split by comparing ensemble predictions with ground-truth labels, achieving a higher accuracy than any single model alone. <br>
+#### **Achieved an F1 Score of 0.76, making me number 1 on Kaggle**
+
+### Weights and Biases Hyperparameter Tuning 
+I used W&B to find optimal: <br>
+
+Learning Rate (coarse sweeps in [1e-4, 1e-5, etc.]) <br>
+Weight Decay <br>
+Batch Size <br>
+Dropout Rate <br>
+Example: The final chosen LR was 0.0001076695, weight decay 0.0000170455, discovered from a Bayesian sweep. These settings significantly improved validation performance.
