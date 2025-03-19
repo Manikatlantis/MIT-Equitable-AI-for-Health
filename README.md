@@ -43,7 +43,7 @@ I used a subset of the Fitzpatrick17k dataset, which merges images from DermaAmi
 ### Distribution os Skin Types->
 ![](fst_distribution.png)
 
-### Feature Columns ->
+### Column Overview ->
 
 | Column                | Data Type | Kaggle Description                                      | Our Understanding                                       |
 |-----------------------|----------|---------------------------------------------------------|---------------------------------------------------------|
@@ -51,10 +51,10 @@ I used a subset of the Fitzpatrick17k dataset, which merges images from DermaAmi
 | `fitzpatrick_scale`  | int64    | Integer in the range [-1, 0) and [1, 6] indicating self-described FST *Fitzpatrick Skin Type (FST)* | -1 = Missing/Unlabeled data  <br> 1 - 6 = Fitzpatrick skin types <br> Type 1 = Very fair, burns easily <br> Type 2 = Deeply pigmented, never burns. |
 | `fitzpatrick_centaur`| int64    | Integer in the range [-1, 0) and [1, 6] indicating FST assigned by Centaur Labs, a medical data annotation firm | -1 = Missing/Unlabeled data <br> 1 - 6 = Fitzpatrick skin types <br> **Difference from `fitzpatrick_scale`**: <br> 1) `fitzpatrick_scale` is self-reported. <br> 2) `fitzpatrick_centaur` is annotated by medical experts. |
 | `label`              | Object   | String indicating medical diagnosis; the target for this competition | Medical diagnosis (our target label) <br> **Example** → melanoma, psoriasis, eczema etc. |
-| `nine_partition_label` | Object   | String indicating one of nine diagnostic categories | **Categories** <br> 1. benign-dermal <br> 2. benign-epidermal <br> 3. inflammatory <br> 4. malignant-cutaneous-lymphoma <br> 5. malignant-dermal <br> 6. malignant-epidermal <br> 7. malignant-melanoma <br> 8. ?? <br> 9. ?? |
+| `nine_partition_label` | Object   | String indicating one of nine diagnostic categories | **Categories** <br> 1. benign-dermal <br> 2. benign-epidermal <br> 3. inflammatory <br> 4. malignant-cutaneous-lymphoma <br> 5. malignant-dermal <br> 6. malignant-epidermal <br> 7. malignant-melanoma |
 | `three_partition_label` | Object | String indicating one of three diagnostic categories | **Categories** <br> 1. benign <br> 2. malignant <br> 3. non-neoplastic |
 | `qc`                 | Object   | Quality control check by a Board-certified dermatologist. <br> The `qc` column has responses for 500 observations of the FULL FitzPatrick dataset. Only about 90 observations in the train set have responses, and only about 30 observations in the test set have responses. | **Possible Values** <br> [nan <br> '1 Diagnostic' <br> '2 Characteristic' <br> '3 Potentially' <br> '3 Wrongly labelled' <br> '4 Other'] <br> |
-| `ddi_scale`          | int64    | A column used to reconcile this dataset with another dataset (may not be relevant). <br> | Used to merge another dataset with our Fitzpatrick dataset. May not be useful and can overlook for now. |
+| `ddi_scale`          | int64    | A column used to reconcile this dataset with another dataset (may not be relevant). <br> | Used to merge another dataset with our Fitzpatrick dataset. Mostly ignored in this project. |
 
 The dataset is provided as train.csv (with labels) and test.csv (unlabeled for submission). Image files are stored in an images.zip archive, with train/test splits structured into folders.
 
