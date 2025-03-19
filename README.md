@@ -14,11 +14,11 @@ The competition is hosted by Break Through Tech AI and the Algorithmic Justice L
 
 ### Dataset Details  
 I used a subset of the Fitzpatrick17k dataset, which merges images from DermaAmin and Atlas Dermatologico, plus FST annotations from **Centaur Labs**.
-1. Image Count: ~4,500 images, each labeled with a skin condition (16 classes).
-2. Fitzpatrick Scale: A numeric scale (1–6) indicating how skin typically reacts to sun.
+[I] Image Count: ~4,500 images, each labeled with a skin condition (16 classes).
+[II] Fitzpatrick Scale: A numeric scale (1–6) indicating how skin typically reacts to sun.
   - 1 = Very fair, always burns
   - 6 = Dark brown/black, never burns
-3. QC (Quality Control) Labels:
+[III] QC (Quality Control) Labels:
   1) Diagnostic: Good example, useful for diagnosis
   2) Characteristic: Possibly indicative but not conclusive
   3) Wrongly labeled: Mislabeled images
