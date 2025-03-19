@@ -89,8 +89,29 @@ _Missing Images: Logged them, removed from training if crucial._ <br>
 - For example, `1 => 1.0`, `5 => 0.8`, `3 => 0.0` (wrongly labeled). 
 
 ### Encoding Labels and Partition Columns 
-- **Label Encoding**: Mapped each of the 16 diseases to an integer using LabelEncoder(). <br>
-- **Partition Columns**: nine_partition_label_encoded & three_partition_label_encoded also label-encoded. <br>
-- **Final DataFrame**: Merged features into df_train with columns like file_path, fitzpatrick_scale, sample_weight, label (int).
+- **Label Encoding**: Mapped each of the 16 diseases to an integer using `LabelEncoder()`. <br>
+- **Partition Columns**: `nine_partition_label_encoded` & `three_partition_label_encoded` also label-encoded. <br>
+- **Final DataFrame**: Merged features into `df_train` with columns like `file_path`, `fitzpatrick_scale`, `sample_weight`, `label` (int).
 
+### Custom Transformations & Data Augmentation
+I used TorchVision transforms: <br>
 
+- Baseline Transform (mild rotation, slight color jitter). <br>
+- Minority Transform (heavier rotation, flips, brightness changes) for underrepresented classes (fewer than 100 samples). <br>
+- Validation Transform (only resize + normalize). <br>
+- PyTorch `Dataset` classes read each image from disk, convert BGR → RGB, apply the appropriate transform, and return `(image_tensor, label, sample_weight)`.
+
+### Model Architecture & Training
+1. Initial Architecture and Basic Approach: <br>
+- Started with a simple CNN and SGD.
+- Achieved modest accuracy, but recognized the complexity of multi-class dermatology data. <br>
+2. Pre-trained Models and Transformers. <br>
+- `SwinForImageClassification` and `VITForImageClassification` from Hugging Face:
+* Imported one of the “swin-large-patch4-window7-224-in22k” or "google/vit-large-patch16-224-in21k" variants.
+* Set `num_labels=21` <br>
+- Phased Training:
+* Phase 1: Freeze the Swin backbone, train only classification head.
+* Phase 2: Unfreeze the entire model with a lower LR.
+
+Optimizer: `AdamW` with a carefully tuned learning rate & weight decay (discovered via Weights & Biases sweeps). <br>
+Loss: Weighted cross-entropy, multiplied by `sample_weight` from the QC column.
