@@ -24,7 +24,7 @@ I used a subset of the Fitzpatrick17k dataset, which merges images from DermaAmi
   3) Wrongly labeled: Mislabeled images
   4) Other: Poor image quality or doesn’t fit a category
   5) Potentially Diagnostic: Unclear, needs further testing
-
+ 
 ### Fitzpatrick Skin Types (FST) ->
 
 ![](Skin_types.png)
