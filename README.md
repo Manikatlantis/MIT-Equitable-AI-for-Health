@@ -1,4 +1,4 @@
-# BTTAI_AJL_Team_2
+# Dermatology Image Classification on Kaggle
 # Equitable AI for Dermatology
 ## Repo for Equitable AI for Dermatology Kaggle 2025 Competition
 
