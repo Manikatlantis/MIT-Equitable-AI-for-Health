@@ -70,7 +70,9 @@ The dataset is provided as train.csv (with labels) and test.csv (unlabeled for s
 
 ![](qc_effect.png)
 ![](qc_pre_proc.png)
-
+### `qc` handling ->
+#### Here's the distibution of the `qc` column across the Fitzpatrick scale:
+![](qc_dist.png)
 ### Data Loading and Preprocessing
 
 _I started by loading the data from train.csv and test.csv:_ <br>
@@ -84,9 +86,11 @@ _Missing Images: Logged them, removed from training if crucial._ <br>
 - Missing / -1 Fitzpatrick Values: Replaced `fitzpatrick_scale` with `fitzpatrick_centaur` if possible. <br>
 - `qc` Column: Extracted numeric part (1–5) to create a qc_numeric column. <br>
 - Then assigned a custom sample weight for each numeric code. <br>
-- For example, 1 => 1.0, 5 => 0.8, 3 => 0.0 (wrongly labeled). 
+- For example, `1 => 1.0`, `5 => 0.8`, `3 => 0.0` (wrongly labeled). 
 
-### `qc` handling ->
-#### Here's the distibution of the `qc` column across the Fitzpatrick scale:
-![](qc_dist.png)
+### Encoding Labels and Partition Columns 
+- **Label Encoding**: Mapped each of the 16 diseases to an integer using LabelEncoder(). <br>
+- **Partition Columns**: nine_partition_label_encoded & three_partition_label_encoded also label-encoded. <br>
+- **Final DataFrame**: Merged features into df_train with columns like file_path, fitzpatrick_scale, sample_weight, label (int).
+
 
