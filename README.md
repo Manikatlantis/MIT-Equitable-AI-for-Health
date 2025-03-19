@@ -67,3 +67,22 @@ The dataset is provided as train.csv (with labels) and test.csv (unlabeled for s
 | 3    | **Wrongly labeled**    | The image **does not correspond** to the labeled condition; it was **misclassified**. | 17    |
 | 4    | **Other**              | The image does **not fit any specific category**, possibly due to **image quality issues**. | 10    |
 | 5    | **Potentially Diagnostic** | The image is **unclear**, meaning **further testing** is needed to confirm its diagnostic value. | 97    |
+
+### Data Loading and Preprocessing
+
+_I started by loading the data from train.csv and test.csv:_
+Added .jpg extension to each md5hash.
+Constructed file_path: combined label + md5hash to form the image’s directory path (e.g. eczema/ecze1234.jpg).
+Verified images exist on disk using a custom check function (`check_image_paths`).
+
+### Handling Missing Data and Invalid Data 
+
+_Missing Images: Logged them, removed from training if crucial._
+Missing / -1 Fitzpatrick Values: Replaced `fitzpatrick_scale` with `fitzpatrick_centaur` if possible.
+`qc` Column: Extracted numeric part (1–5) to create a qc_numeric column.
+Then assigned a custom sample weight for each numeric code.
+For example, 1 => 1.0, 5 => 0.8, 3 => 0.0 (wrongly labeled).
+
+### `qc` handling ->
+#### Here's the distibution of the `qc` column across the Fitzpatrick scale:
+![](qc_dist.png)
