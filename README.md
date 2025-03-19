@@ -1,20 +1,30 @@
 # Dermatology Image Classification on Kaggle
 ## Equitable AI for Dermatology
-### Goal: Develop a fair and transparent machine learning model to classify 16 different skin conditions across diverse skin tones, addressing potential biases in dermatology.
+**Goal**: Develop a fair and transparent machine learning model to classify 16 different skin conditions across diverse skin tones, addressing potential biases in dermatology.
 
 ## Project Overview 
 Skin condition classification models often exhibit bias due to the lack of diverse training data, leading to disparities in healthcare, particularly for individuals with darker skin tones. This project, part of the Spring 2025 AI Studio, aims to create an equitable and explainable model that classifies 16 skin conditions across the Fitzpatrick skin tone scale.
-
 The competition is hosted by Break Through Tech AI and the Algorithmic Justice League (AJL), with an emphasis on equity and transparency in AI-driven healthcare solutions.
 
-## Dataset ->
-This project utilizes a subset of the Fitzpatrick17k dataset, a collection of 17,000 labeled dermatological images. The dataset includes:
-  
-* 4,500 images across 16 skin conditions
+### Key Highlights ->
+**Dataset:** Subset of Fitzpatrick17k (17,000 labeled dermatological images). I specifically used ~4,500 images covering 16 conditions, with Fitzpatrick skin tone (FST) labels (1–6).
+**Fairness Focus:** I tracked performance across diverse FST categories to ensure the model is not disproportionately failing on darker skin types.
+**Model Evolution:** Starting from a simple CNN with SGD → Pre-trained networks (ResNet, EfficientNet) → Transformers (ViT, Swin) → Ensemble.
+**Results:** Achieved up to 0.76 F1 Score on the test set, securing #1 on the leaderboard.
 
-* Images labeled with Fitzpatrick skin tone scale (1-6), indicating skin type diversity
+### Dataset Details  
+I used a subset of the Fitzpatrick17k dataset, which merges images from DermaAmin and Atlas Dermatologico, plus FST annotations from **Centaur Labs**.
+1. Image Count: ~4,500 images, each labeled with a skin condition (16 classes).
+2. Fitzpatrick Scale: A numeric scale (1–6) indicating how skin typically reacts to sun.
+  - 1 = Very fair, always burns
+  - 6 = Dark brown/black, never burns
+3. QC (Quality Control) Labels:
+  1) Diagnostic: Good example, useful for diagnosis
+  2) Characteristic: Possibly indicative but not conclusive
+  3) Wrongly labeled: Mislabeled images
+  4) Other: Poor image quality or doesn’t fit a category
+  5) Potentially Diagnostic: Unclear, needs further testing
 
-* Annotations for medical conditions sourced from DermaAmin and Atlas Dermatologico
 ### Fitzpatrick Skin Types (FST) ->
 
 ![](Skin_types.png)
