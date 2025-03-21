@@ -131,14 +131,14 @@ I tested the ensemble on a validation split by comparing ensemble predictions wi
 
 ### Weights and Biases Hyperparameter Tuning 
 I used W&B to find optimal: <br>
-![](wandb1.png)
-![](wandb2.png)
-
 Learning Rate (coarse sweeps in [1e-4, 1e-5, etc.]) <br>
 Weight Decay - mostly 0.5 was best <br>
 Batch Size - 16, 32, or 64 <br>
 Dropout Rate <br>
 Example: The final chosen LR was 0.0001076695, weight decay 0.0000170455, discovered from a Bayesian sweep. These settings significantly improved validation performance.
+
+![](wandb1.png)
+![](wandb2.png)
 
 ## Final Inference & Submission
 Test Data: Created a test transform (resize + normalize). <br>
