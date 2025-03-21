@@ -9,7 +9,7 @@ The competition is hosted by Break Through Tech AI and the Algorithmic Justice L
 ### Key Highlights ->
 **Dataset:** Subset of Fitzpatrick17k (17,000 labeled dermatological images). I specifically used ~4,500 images covering 16 conditions, with Fitzpatrick skin tone (FST) labels (1–6).
 **Fairness Focus:** I tracked performance across diverse FST categories to ensure the model is not disproportionately failing on darker skin types.
-**Model Evolution:** Starting from a simple CNN with SGD → Pre-trained networks (ResNet, EfficientNet) → Transformers (ViT, Swin) → Ensemble.
+**Model Evolution:** Starting from a simple CNN with SGD → Pre-trained networks (ResNet, EfficientNet) → Transformers (ViT, Swin) → Ensemble.  <br>
 **Results:** Achieved up to 0.76347 F1 Score on the test set, securing #1 on the leaderboard ->
 
 ![](LeaderBoard_Kaggle.png)
