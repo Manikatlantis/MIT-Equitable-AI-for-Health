@@ -147,8 +147,8 @@ Test Data: Created a test transform (resize + normalize). <br>
 Iterated over test.csv, loaded each image, and performed a forward pass. <br>
 Argmax over the logits to pick the predicted label integer. <br>
 Mapped integer back to the original disease string (idx_to_label). <br>
-Saved as submission_75_initial.csv with columns [md5hash, label]. <br>
-This final submission reached 0.76 F1 Score on the leaderboard.
+Saved as ensemble_submission_last_original.csv with columns [md5hash, label]. <br>
+This final submission reached 0.76347 F1 Score on the leaderboard.
 
 # Conclusion
-I built a robust pipeline to handle data cleaning, augmentation, and weighting. By combining advanced transformer architectures (Swin) with phase-wise training and hyperparameter sweeps in W&B, I achieved a strong 75% accuracy. This demonstrates the potential of attention-based models for dermatology classification, while also emphasizing fairness for different skin tones.
+I built a robust pipeline to handle data cleaning, augmentation, and weighting. By combining advanced transformer architectures (Swin) with phase-wise training and hyperparameter sweeps in W&B, I achieved a strong 76% accuracy. This demonstrates the potential of attention-based models for dermatology classification, while also emphasizing fairness for different skin tones.
