@@ -1,0 +1,31 @@
+program: VIT_DUAL_TRY.py
+method: bayes
+metric:
+  name: val_acc
+  goal: maximize
+parameters:
+  best_learning_rate:
+    distribution: uniform
+    min: 3e-5
+    max: 2e-4
+  best_weight_decay:
+    distribution: uniform
+    min: 1e-6
+    max: 1e-5
+  fine_tune_lr:
+    distribution: uniform
+    min: 5e-6
+    max: 2e-5
+  fine_tune_weight_decay:
+    distribution: uniform
+    min: 1e-6
+    max: 1e-5
+  epochs_phase1:
+    values: [5, 10]
+  epochs_phase2:
+    values: [5, 10]
+  batch_size:
+    values: [16, 32, 64]
+early_terminate:
+  type: hyperband
+  min_iter: 2
