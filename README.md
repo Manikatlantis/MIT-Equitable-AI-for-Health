@@ -13,6 +13,7 @@ The competition is hosted by Break Through Tech AI and the Algorithmic Justice L
 ## **Results:** Achieved up to 0.76347 F1 Score on the test set, securing #1 on the leaderboard ->
 
 ![](LeaderBoard_Kaggle.png)
+![](FINAL_WIN.png)
 
 ### Dataset Details  
 I used a subset of the Fitzpatrick17k dataset, which merges images from DermaAmin and Atlas Dermatologico, plus FST annotations from **Centaur Labs**.
