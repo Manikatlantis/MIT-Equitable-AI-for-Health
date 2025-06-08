@@ -43,7 +43,7 @@ I used a subset of the Fitzpatrick17k dataset, which merges images from DermaAmi
 ### Skin Conditions ->
 ![](skin_condition_distribution.png)
 
-### Distribution os Skin Types->
+### Distribution of Skin Types ->
 ![](fst_distribution.png)
 
 ### Column Overview ->
@@ -74,7 +74,7 @@ The dataset is provided as train.csv (with labels) and test.csv (unlabeled for s
 ![](qc_effect.png)
 ![](qc_pre_proc.png)
 ### `qc` handling ->
-#### Here's the distibution of the `qc` column across the Fitzpatrick scale:
+#### Here's the distribution of the `qc` column across the Fitzpatrick scale:
 ![](qc_dist.png)
 ### Data Loading and Preprocessing
 
